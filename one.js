@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 AWS.config.update({region: 'ap-south-1'});
 var rekognition = new AWS.Rekognition();
-
+//this is the credential file
 
 var params = {
     CollectionId: 'Test',
@@ -9,8 +9,10 @@ var params = {
       S3Object: {
         Bucket: 'bucketname',
         Name: 'image.jpg',
+          
       }
     },
+    
     FaceMatchThreshold: 70,
     MaxFaces: 10
   };
@@ -19,4 +21,5 @@ var params = {
     if (err) console.log(err, err.stack); // an error occurred
     else     console.log(data.FaceMatches); // successful response
   });
+      
 }
